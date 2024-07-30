@@ -4,16 +4,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="match_parent"
     android:background="@drawable/border1">
+=======
+    android:layout_height="match_parent">
+>>>>>>> 7ea4c352e5c7c6659c1796d4307e7bb807a90dd3
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="Search"
         android:textSize="30sp"
         android:fontFamily="@font/poppins"
         android:textColor="@color/secondary"
+=======
+        android:text="Search."
+        android:textSize="30sp"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/primary"
+>>>>>>> 7ea4c352e5c7c6659c1796d4307e7bb807a90dd3
         android:textStyle="bold"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
@@ -33,7 +44,11 @@
         android:fontFamily="@font/poppins"
         android:drawableTint="@color/primary"
         android:background="@drawable/search_border"
+<<<<<<< HEAD
         android:drawableEnd="@drawable/search"
+=======
+        android:drawableEnd="@drawable/bookmark"
+>>>>>>> 7ea4c352e5c7c6659c1796d4307e7bb807a90dd3
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

@@ -3,7 +3,8 @@
 
     <style name="Theme.DailyScoop" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:colorPrimary">@color/primary</item>
-        <item name="android:colorSecondary">@color/secondary</item>
+        <item name="android:colorPrimaryDark">@color/secondary</item>
+        <item name="android:statusBarColor">@color/primary</item>
 
     </style>
 </resources>

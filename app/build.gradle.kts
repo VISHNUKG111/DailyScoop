@@ -1,6 +1,8 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -9,8 +11,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.dailyscoop"
-        minSdk = 34
-        targetSdk = 34
+        minSdk = 28
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -38,6 +40,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -66,4 +69,28 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Architectural Components
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    // Room
+    implementation (libs.androidx.room.runtime)
+    ksp (libs.androidx.room.compiler)
+    // Kotlin Extensions and Coroutines support for Room
+    implementation (libs.androidx.room.ktx)
+    // Coroutines
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
+    // Coroutine Lifecycle Scopes
+    implementation (libs.androidx.lifecycle.viewmodel.ktx.v262)
+    implementation (libs.androidx.lifecycle.runtime.ktx.v262)
+    // Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.logging.interceptor)
+    // Navigation Components
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
+    // Glide
+    implementation (libs.glide)
+    ksp (libs.compiler)
 }

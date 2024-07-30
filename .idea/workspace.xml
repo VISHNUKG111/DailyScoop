@@ -123,6 +123,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\renja\Desktop\GitHub\DailyScoop\app\src\main\java\com\example\dailyscoop\ui" />
     </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.dailyscoop.model" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">

@@ -1,4 +1,4 @@
-package com.example.dailyscoop
+package com.example.dailyscoop.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

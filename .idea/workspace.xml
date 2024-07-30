@@ -12,6 +12,31 @@
           <theme>@style/Theme.DailyScoop</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_article.xml">
+        <config>
+          <theme>@style/Theme.DailyScoop</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_bookmark.xml">
+        <config>
+          <theme>@style/Theme.DailyScoop</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_headlines.xml">
+        <config>
+          <theme>@style/Theme.DailyScoop</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml">
+        <config>
+          <theme>@style/Theme.DailyScoop</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation_menu.xml">
+        <config>
+          <theme>@style/Theme.DailyScoop</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
@@ -70,6 +95,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\renja\Desktop\GitHub\DailyScoop\app\src\main\java\com\example\dailyscoop\ui" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="DailyScoop.app.main" />

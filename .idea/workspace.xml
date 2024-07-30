@@ -3,6 +3,7 @@
   <component name="AndroidLayouts">
     <shared>
       <config>
+        <device id="pixel_8" />
         <device id="_device_class_phone" />
       </config>
     </shared>

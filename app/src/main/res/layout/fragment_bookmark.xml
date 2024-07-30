@@ -7,17 +7,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/poppins"
-<<<<<<< HEAD
-        android:text="Favourites."
-=======
-        android:text="Favourites"
->>>>>>> 33dce8b21db6b91b447dba7da018b462012b4484
-        android:textColor="@color/primary"
+        android:text="Bookmark"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/primary"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFavourites"

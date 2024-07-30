@@ -14,16 +14,13 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
     <HEAD
-        android:src="@drawable/baseline_favorite_24"
-
         android:src="@drawable/bookmark"
-        87cadbd18771dc56aeb12fbde32b7977f798e06a
         app:fabSize="normal"
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 </androidx.constraintlayout.widget.ConstraintLayout>

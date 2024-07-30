@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "DailyScoop"
 include(":app")
+ 

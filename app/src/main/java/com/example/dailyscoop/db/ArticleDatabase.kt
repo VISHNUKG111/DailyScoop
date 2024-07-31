@@ -15,7 +15,7 @@ import com.example.dailyscoop.model.Article
 @TypeConverters(Conveters::class)
 abstract class ArticleDatabase: RoomDatabase() {
 
-    abstract fun getArticleDAO(): ArticleDAO
+    abstract fun getArticleDao(): ArticleDAO
 
     companion object{
         @Volatile

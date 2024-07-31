@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.bumptech.glide.load.engine.Resource
 import com.example.dailyscoop.model.NewsResponse
+import com.example.dailyscoop.repository.NewsRepository
 import okhttp3.Response
 
 class NewsViewModel(app: Application, val newsRepository: NewsRepository): AndroidViewModel(app) {

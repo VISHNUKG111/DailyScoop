@@ -1,8 +1,8 @@
 package com.example.dailyscoop.repository
 
+import com.example.dailyscoop.db.ArticleDatabase
 import com.example.dailyscoop.api.RetrofitInstance
 import com.example.dailyscoop.model.Article
-import com.example.dailyscoop.db.ArticleDatabase
 
 class NewsRepository (val db: ArticleDatabase) {
 

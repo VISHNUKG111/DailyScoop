@@ -81,8 +81,8 @@
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="navigationResourceFile" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>

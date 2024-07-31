@@ -21,6 +21,25 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
 
     private fun handleHeadlinesResponse(response: Response<NewsResponse>): Resource<NewsResponse>{
         if( response.isSuccessful){
+            response.body()?.let { resultResponse ->
+                headlinesPage++
+                if (headlinesResponse == null) {
+                    headlinesResponse = resultResponse
+                }else{
+                    val oldArticles = headlinesResponse?.articles
+                    val newArticles = resultResponse.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success( headlinesResponse ?: resultResponse)
+
+            }
+        }
+        return Resource.Error(response.message())
+    }
+    private fun handleSearchNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse>{
+        if (response.isSuccessful){
+            response.body().let { resultResponse ->}
+        }
     }
 
 

@@ -2,10 +2,9 @@ package com.example.dailyscoop.repository
 
 import com.example.dailyscoop.api.RetrofitInstance
 import com.example.dailyscoop.model.Article
-import java.util.Locale.IsoCountryCode
 import com.example.dailyscoop.db.ArticleDatabase
 
-class NewsRepository (val db: ArticleDatabase){
+class NewsRepository (val db: ArticleDatabase) {
 
      suspend fun getHeadlines(countryCode: String,pageNumber: Int) =
          RetrofitInstance.api.getHeadlines(countryCode,pageNumber)

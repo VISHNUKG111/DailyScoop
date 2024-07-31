@@ -3,7 +3,7 @@ package com.example.dailyscoop.db
 import androidx.room.TypeConverter
 import com.example.dailyscoop.model.Source
 
-class Conveters {
+class Conveters{
     @TypeConverter
     fun fromSource(source: Source) :String{
         return source.name

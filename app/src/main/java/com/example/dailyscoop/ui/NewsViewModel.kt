@@ -64,7 +64,7 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
         return Resource.Error(response.message())
     }
 
-    fun addToFavorites(article: Article) = viewModelScope.launch {
+    fun addToBookmark(article: Article) = viewModelScope.launch {
         newsRepository.upsert(article)
     }
 

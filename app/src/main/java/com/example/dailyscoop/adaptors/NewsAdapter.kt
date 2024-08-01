@@ -26,9 +26,8 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
           }
 
           override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-             return oldItem == newItem.url
+             return oldItem == newItem
           }
-
       }
     val differ = AsyncListDiffer(this, differCallback)
 
@@ -40,11 +39,15 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+       return differ.currentList.size
     }
 
+    private var onItemClickListener :((Article) -> Unit)? = null
+
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        TODO("Not yet implemented")
+       val article = differ.currentList[position]
+
+        articleImage = holder.itemView.findViewById(R.id.articleImage)
     }
 
 }

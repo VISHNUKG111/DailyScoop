@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.dailyscoop.R
 import com.example.dailyscoop.model.Article
 
@@ -56,7 +57,9 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
         articleDateTime = holder.itemView.findViewById(R.id.articleDateTime)
 
         holder.itemView.apply {
-
+            Glide.with(this).load(article.urlToImage).into(articleImage)
+            articleSource.text = article.source?.name
+            articleTitle
         }
     }
 

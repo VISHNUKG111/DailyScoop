@@ -1,11 +1,14 @@
 package com.example.dailyscoop.ui.fragments
 
-import javax.naming.Binding
-import
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
+import com.example.dailyscoop.R
+import com.google.android.material.snackbar.Snackbar
+
 
 class ArticleFragment : Fragment(R.layout.fragment_article) {
 
-    lateinit var newsViewmodel: NewsViewsModel
+    lateinit var newsViewmodel:
     val args: ArticleFragmentArgs by navArgs()
     lateinit var binding: FragmentArticleBinding
 

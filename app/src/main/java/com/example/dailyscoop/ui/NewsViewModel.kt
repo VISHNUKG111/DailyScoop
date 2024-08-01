@@ -3,9 +3,12 @@ package com.example.dailyscoop.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.load.engine.Resource
+import com.example.dailyscoop.model.Article
 import com.example.dailyscoop.model.NewsResponse
 import com.example.dailyscoop.repository.NewsRepository
+import kotlinx.coroutines.launch
 import okhttp3.Response
 
 class NewsViewModel(app: Application, val newsRepository: NewsRepository): AndroidViewModel(app) {
@@ -56,6 +59,12 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
         }
         return Resource.Error(response.message())
     }
+
+    fun addToFavorites(article: Article) = viewModelScope.launch {
+        newsRepository.upsert(article)
+    }
+
+
 
 
 

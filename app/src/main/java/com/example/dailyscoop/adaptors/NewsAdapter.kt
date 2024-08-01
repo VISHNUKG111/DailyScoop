@@ -48,6 +48,8 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
        val article = differ.currentList[position]
 
         articleImage = holder.itemView.findViewById(R.id.articleImage)
+        articleImage = holder.itemView.findViewById(R.id.articleImage)
+        articlesource = holder
     }
 
 }

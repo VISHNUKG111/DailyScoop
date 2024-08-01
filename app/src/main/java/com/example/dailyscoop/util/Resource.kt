@@ -1,10 +1,10 @@
 package com.example.dailyscoop.util
 
 sealed class Resource<T>(
-    val data: T? = null
-    val message: string? = null
+    val data: T? = null,
+    val message: String? = null
 ){
-    class  success<T>(data: T): resource<T>(data)
-    class Error<T>(message: string, data: T?=null):resources<T>(data, message)
-    class loading<T>: resource<T>()
+    class  Success<T>(data: T): Resource<T>(data)
+    class Error<T>(message: String, data: T?=null): Resource<T>(data, message)
+    class Loading<T>: Resource<T>()
 }

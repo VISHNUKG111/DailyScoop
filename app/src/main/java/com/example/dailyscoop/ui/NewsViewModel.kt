@@ -3,9 +3,12 @@ package com.example.dailyscoop.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.load.engine.Resource
+import com.example.dailyscoop.model.Article
 import com.example.dailyscoop.model.NewsResponse
 import com.example.dailyscoop.repository.NewsRepository
+import kotlinx.coroutines.launch
 import okhttp3.Response
 
 class NewsViewModel(app: Application, val newsRepository: NewsRepository): AndroidViewModel(app) {
@@ -36,11 +39,32 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
         }
         return Resource.Error(response.message())
     }
-    private fun handleSearchNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse>{
-        if (response.isSuccessful){
-            response.body().let { resultResponse ->}
+    private fun handleHeadlinesResponse(response: Response<NewsResponse>): Resource<NewsResponse>{
+        if( response.isSuccessful){
+            response.body()?.let { resultResponse ->
+                if (searchNewsResponse == null) || newSearchQuery != oldSearchQuery){
+                    searchNewsPage =1
+                    oldSearchQuery = newSearchQuery
+                    searchNewsResponse =resultResponse
+
+                }else{
+                    searchNewsPage++
+                    val oldArticles =searchNewsResponse?.articles
+                    val newArticles = resultResponse.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success( searchNewsResponse ?: resultResponse)
+
+            }
         }
+        return Resource.Error(response.message())
     }
+
+    fun addToFavorites(article: Article) = viewModelScope.launch {
+        newsRepository.upsert(article)
+    }
+
+
 
 
 

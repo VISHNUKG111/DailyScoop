@@ -71,11 +71,15 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
 =======
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Asus\.android\avd\Pixel_4a_API_31.avd)]" />
 >>>>>>> 72f91dd2096e91e78352dcf21ccfc4f2d95b36ca
+=======
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=R9ZT301ZY8X)]" />
+>>>>>>> Stashed changes
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />

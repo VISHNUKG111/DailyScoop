@@ -15,7 +15,8 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     lateinit var articleImage: ImageView
-    lateinit var articlesource: TextView
+    lateinit var articleSource: TextView
+    lateinit var articleTitle: TextView
     lateinit var articleDescription: TextView
     lateinit var articleDateTime: TextView
 
@@ -49,7 +50,14 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
         articleImage = holder.itemView.findViewById(R.id.articleImage)
         articleImage = holder.itemView.findViewById(R.id.articleImage)
+<<<<<<< HEAD
         articlesource = holder
+=======
+        articleSource = holder.itemView.findViewById(R.id.articleSource)
+        articleTitle = holder.itemView.findViewById(R.id.articleTitle)
+        articleDescription = holder.itemView.findViewById(R.id.articleDescription)
+        articleDateTime = holder.itemView.findViewById(R.id.articleDateTime)
+>>>>>>> a3c805259d4fb06ce10c79083f0913fcc550062d
     }
 
 }

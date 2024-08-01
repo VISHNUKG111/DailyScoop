@@ -7,19 +7,19 @@ import android.net.NetworkCapabilities
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.bumptech.glide.load.engine.Resource
 import com.example.dailyscoop.model.Article
 import com.example.dailyscoop.model.NewsResponse
 import com.example.dailyscoop.repository.NewsRepository
 import kotlinx.coroutines.launch
 import okhttp3.Response
-import java.util.Locale.IsoCountryCode
+import com.example.dailyscoop.util.Resource
 
 class NewsViewModel(app: Application, val newsRepository: NewsRepository): AndroidViewModel(app) {
 
     val headlines : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var headlinesPage = 1
     var headlinesResponse : NewsResponse? =null
+
     val searchNews : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var searchNewsPage = 1
     var searchNewsResponse : NewsResponse? = null
@@ -32,7 +32,7 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
                 headlinesPage++
                 if (headlinesResponse == null) {
                     headlinesResponse = resultResponse
-                }else{
+                } else{
                     val oldArticles = headlinesResponse?.articles
                     val newArticles = resultResponse.articles
                     oldArticles?.addAll(newArticles)
@@ -51,7 +51,7 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
                     oldSearchQuery = newSearchQuery
                     searchNewsResponse =resultResponse
 
-                }else{
+                } else{
                     searchNewsPage++
                     val oldArticles =searchNewsResponse?.articles
                     val newArticles = resultResponse.articles
@@ -68,7 +68,7 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
         newsRepository.upsert(article)
     }
 
-    fun getFavouriteNews() = newsRepository.getFavouriteNews()
+    fun getBookmarkNews() = newsRepository.getBookmarkNews()
 
     fun deleteArticle(article: Article) = viewModelScope.launch {
         newsRepository.upsert(article)

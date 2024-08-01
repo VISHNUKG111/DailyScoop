@@ -1,4 +1,5 @@
 package com.example.dailyscoop.util
 
-class Resource {
-}
+sealed class Resource<T> (
+    
+)

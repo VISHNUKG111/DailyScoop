@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dailyscoop.R
@@ -18,6 +20,7 @@ import com.example.dailyscoop.databinding.FragmentHeadlinesBinding
 import com.example.dailyscoop.ui.NewsActivity
 import com.example.dailyscoop.ui.NewsViewModel
 import com.example.dailyscoop.util.Constants
+import com.example.dailyscoop.util.Resource
 import java.lang.Error
 
 class HeadlinesFragment : Fragment() {
@@ -43,8 +46,30 @@ class HeadlinesFragment : Fragment() {
         newsViewModel = (activity as NewsActivity).newsViewModel
         setupHeadlinesRecycler()
 
-        newsAdapter
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article",it)
+            }
+            findNavController().navigate(R.id.action_headlinesFragment2_to_articleFragment, bundle)
+        }
+        newsViewModel.headlines.observe(viewLifecycleOwner, Observer { response ->
+            when(response){
+                is Resource.Success<*> ->{
+                    hideProgressBar()
+                    hideErrorMessage()
+                    response.data?.let { newsResponse ->
+                        
+                    }
 
+                }
+                is Resource.Error<*> ->{
+
+                }
+                is Resource.Loading<*> ->{
+
+                }
+            }
+        })
 
     }
 

@@ -1,17 +1,23 @@
 package com.example.dailyscoop.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.AbsListView
 import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dailyscoop.R
 import com.example.dailyscoop.adaptors.NewsAdapter
 import com.example.dailyscoop.databinding.FragmentArticleBinding
 import com.example.dailyscoop.databinding.FragmentHeadlinesBinding
+import com.example.dailyscoop.ui.NewsActivity
 import com.example.dailyscoop.ui.NewsViewModel
+import com.example.dailyscoop.util.Constants
 import java.lang.Error
 
 class HeadlinesFragment : Fragment() {
@@ -25,6 +31,19 @@ class HeadlinesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHeadlinesBinding.bind(view)
+
+        itemHeadlinesError = view.findViewById(R.id.itemHeadlinesError)
+
+        val inflater = requireContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view: View = inflater.inflate(R.layout.item_error, null)
+
+        retryButton = view.findViewById(R.id.retryButton)
+        errorText = view.findViewById(R.id.errorText)
+
+        newsViewModel = (activity as NewsActivity).newsViewModel
+        setupHeadlinesRecycler()
+
+        newsAdapter
 
 
     }
@@ -57,7 +76,7 @@ class HeadlinesFragment : Fragment() {
         isError = true
     }
 
-    val scrollListener = object : RecyclerView.OnScrollListener(){
+    val scrollListener = object : RecyclerView.OnScrollListener() {
 
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
@@ -69,14 +88,37 @@ class HeadlinesFragment : Fragment() {
 
             val isNoErrors = !isError
             val isNotLoadingAndNotLastPage = !isLoading && !isLastPage
-            val isAtLastItem =firstVisibleItemPosition + visibleItemCount >= totalItemCount
+            val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
             val isNotAtBeginning = firstVisibleItemPosition >= 0
+            val isTotalMoreThanVisible = totalItemCount >= Constants.QUERY_PAGE_SIZE
+            val shouldPaginate =
+                isNoErrors && isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
+            if (shouldPaginate) {
+                newsViewModel.getHeadlines("us")
+                isScrolling = false
+            }
         }
 
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
+
+            if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                isScrolling = true
+            }
         }
     }
+
+
+        private fun setupHeadlinesRecycler(){
+            newsAdapter = NewsAdapter()
+            binding.recyclerHeadlines.apply {
+                adapter = newsAdapter
+                layoutManager = LinearLayoutManager(activity)
+                addOnScrollListener(this@HeadlinesFragment.scrollListener)
+
+        }
+    }
+
 
 
 }

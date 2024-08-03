@@ -16,13 +16,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dailyscoop.R
 import com.example.dailyscoop.adaptors.NewsAdapter
-import com.example.dailyscoop.databinding.FragmentArticleBinding
 import com.example.dailyscoop.databinding.FragmentHeadlinesBinding
 import com.example.dailyscoop.ui.NewsActivity
 import com.example.dailyscoop.ui.NewsViewModel
 import com.example.dailyscoop.util.Constants
 import com.example.dailyscoop.util.Resource
-import java.lang.Error
+
 
 class HeadlinesFragment : Fragment(R.layout.fragment_headlines) {
     lateinit var newsViewModel: NewsViewModel

@@ -60,12 +60,12 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             findNavController().navigate(R.id.action_searchFragment2_to_articleFragment, bundle)
         }
 
-        var job:Job? =null
+        var job: Job? =null
         binding.searchEdit.addTextChangedListener(){ editable ->
             job?.cancel()
             job = MainScope().launch {
                 delay(SEARCH_NEWS_TIME_DELAY)
-                editable?.let{
+                editable?.let {
                     if (editable.toString().isNotEmpty()){
                         newsViewModel.searchNews(editable.toSting())
                         
@@ -85,11 +85,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                         isLastPage = newsViewModel.searchNewsPage == totalPages
                         if (isLastPage){
                             binding.recyclerSearch.setPadding(0,0,0,0)
-
                         }
-
                     }
-
                 }
                 is Resource.Error<*> ->{
                     hideProgressBar()
@@ -173,7 +170,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             }
         }
     }
-    private fun setupHeadlinesRecycler(){
+    private fun setupSearchRecycler(){
         newsAdapter = NewsAdapter()
         binding.recyclerSearch.apply {
             adapter = newsAdapter

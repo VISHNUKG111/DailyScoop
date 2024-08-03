@@ -3,6 +3,7 @@ package com.example.dailyscoop.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -16,7 +17,7 @@ import com.example.dailyscoop.ui.NewsViewModel
 import com.google.android.material.snackbar.Snackbar
 
 
-class BookmarkFragment {
+class BookmarkFragment: Fragment(R.layout.fragment_bookmark) {
 
     lateinit var newsViewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter

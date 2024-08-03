@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.AbsListView
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -57,19 +58,36 @@ class HeadlinesFragment : Fragment() {
                 is Resource.Success<*> ->{
                     hideProgressBar()
                     hideErrorMessage()
-                    response.data?.let { newsResponse ->
+                    response.data?.let {newsResponse ->
+                        newsAdapter.differ.submitList(newsResponse.articles.toList())
+                        val totalPages = newsResponse.totalResults / Constants.QUERY_PAGE_SIZE +2
+                        isLastPage = newsViewModel.headlinesPage == totalPages
+                        if (isLastPage){
+                            binding.recyclerHeadlines.setPadding(0,0,0,0)
+
+                        }
                         
                     }
 
                 }
                 is Resource.Error<*> ->{
+                    hideProgressBar()
+                    response.message?.let { message ->
+                        Toast.makeText(activity,"Sorry error : $message", Toast.LENGTH_LONG).show()
+                        showErrorMessage(message)
+                    }
 
                 }
                 is Resource.Loading<*> ->{
+                    showProgressBar()
 
                 }
             }
         })
+
+        retryButton.setOnClickListener{
+            newsViewModel.getHeadlines("us")
+        }
 
     }
 

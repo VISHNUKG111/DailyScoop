@@ -2,15 +2,15 @@ package com.example.dailyscoop.repository
 
 import com.example.dailyscoop.db.ArticleDatabase
 import com.example.dailyscoop.api.RetrofitInstance
-import com.example.dailyscoop.model.Article
+import com.example.dailyscoop.models.Article
 
 class NewsRepository (val db: ArticleDatabase) {
 
      suspend fun getHeadlines(countryCode: String,pageNumber: Int) =
-         RetrofitInstance.api.getHeadlines(countryCode,pageNumber)
+         RetrofitInstance().api.getHeadlines(countryCode,pageNumber)
 
      suspend fun searchNews(searchQuery:String,pageNumber: Int) =
-         RetrofitInstance.api.searchForNews(searchQuery,pageNumber)
+         RetrofitInstance().api.searchForNews(searchQuery,pageNumber)
 
      suspend fun upsert(article: Article) = db.getArticleDao().upsert(article)
 

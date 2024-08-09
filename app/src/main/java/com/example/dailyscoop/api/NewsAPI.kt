@@ -1,8 +1,8 @@
 package com.example.dailyscoop.api
 
-import com.example.dailyscoop.model.NewsResponse
+import com.example.dailyscoop.models.NewsResponse
 import com.example.dailyscoop.util.Constants.Companion.API_KEY
-import okhttp3.Response
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 

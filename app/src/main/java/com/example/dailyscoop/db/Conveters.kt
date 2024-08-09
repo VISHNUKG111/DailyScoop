@@ -1,7 +1,7 @@
 package com.example.dailyscoop.db
 
 import androidx.room.TypeConverter
-import com.example.dailyscoop.model.Source
+import com.example.dailyscoop.models.Source
 
 class Conveters{
     @TypeConverter

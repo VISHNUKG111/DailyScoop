@@ -1,4 +1,4 @@
-package com.example.dailyscoop.model
+package com.example.dailyscoop.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

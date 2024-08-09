@@ -14,9 +14,9 @@ import com.google.android.material.snackbar.Snackbar
 
 class ArticleFragment : Fragment(R.layout.fragment_article) {
 
-    lateinit var newsViewModel: NewsViewModel
-    val args: ArticleFragmentArgs by navArgs()
-    lateinit var binding: FragmentArticleBinding
+    private lateinit var newsViewModel: NewsViewModel
+    private val args by navArgs<ArticleFragmentArgs>()
+    private lateinit var binding: FragmentArticleBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,9 +27,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
 
         binding.webView.apply {
             webViewClient = WebViewClient()
-            article.url?.let {
-                loadUrl(it)
-            }
+            loadUrl(article.url)
         }
 
 

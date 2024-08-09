@@ -1,4 +1,4 @@
-package com.example.dailyscoop.model
+package com.example.dailyscoop.models
 
 data class NewsResponse(
     val articles: MutableList<Article>,

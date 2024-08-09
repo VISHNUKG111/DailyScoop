@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -61,14 +62,14 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         }
 
         var job: Job? =null
-        binding.searchEdit.addTextChangedListener(){ editable ->
+        binding.searchEdit.doAfterTextChanged { editable ->
             job?.cancel()
             job = MainScope().launch {
                 delay(SEARCH_NEWS_TIME_DELAY)
                 editable?.let {
                     if (editable.toString().isNotEmpty()){
-                        newsViewModel.searchNews(editable.toSting())
-                        
+                        newsViewModel.searchNews(editable.toString())
+
                     }
                 }
             }

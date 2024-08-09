@@ -1,4 +1,4 @@
-package com.example.dailyscoop.model
+package com.example.dailyscoop.models
 
 data class Source(
     val id: String,

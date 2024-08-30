@@ -26,7 +26,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         val article = args.article
 
         binding.webView.apply {
-            webViewClient = WebViewClient()
+            WebViewClient = WebViewClient()
             loadUrl(article.url)
         }
 
@@ -38,3 +38,5 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     }
 
 }
+
+
